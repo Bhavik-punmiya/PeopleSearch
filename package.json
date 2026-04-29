@@ -1,0 +1,11 @@
+{
+  "name": "peoplesearch-project",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "node build.js --clean",
+    "build": "node build.js",
+    "build:fast": "node build.js --fast",
+    "dist": "node build.js --dist",
+    "dist:fast": "node build.js --dist --fast"
+  }
+}
