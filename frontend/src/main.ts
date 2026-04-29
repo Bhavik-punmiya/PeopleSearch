@@ -2,8 +2,6 @@ import { app, BrowserWindow } from 'electron';
 import path from 'path';
 import { spawn, ChildProcess } from 'child_process';
 
-if (require('electron-squirrel-startup')) app.quit();
-
 let backendProcess: ChildProcess | null = null;
 
 function killBackend() {

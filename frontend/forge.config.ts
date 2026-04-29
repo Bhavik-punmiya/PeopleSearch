@@ -1,6 +1,5 @@
 import type { ForgeConfig } from '@electron-forge/shared-types';
 import { MakerZIP } from '@electron-forge/maker-zip';
-import { MakerWix } from '@electron-forge/maker-wix';
 import { VitePlugin } from '@electron-forge/plugin-vite';
 import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
@@ -11,22 +10,14 @@ const config: ForgeConfig = {
     asar: true,
     name: "PeopleSearch",
     executableName: "PeopleSearch",
-    icon: path.join(__dirname, 'public', 'hr-logo', 'favicon'),
+    icon: path.resolve(__dirname, 'public/hr-logo/android-chrome-512x512'),
     extraResource: [
-      path.join(__dirname, '..', 'backend', 'dist', 'backend.exe'),
-      path.join(__dirname, 'people.db')
+      path.resolve(__dirname, '../backend/dist/backend.exe'),
+      path.resolve(__dirname, 'people.db')
     ]
   },
   rebuildConfig: {},
   makers: [
-    new MakerWix({
-      language: 1033,
-      manufacturer: "PeopleSearch",
-      description: "HR Data Management Application",
-      ui: {
-        chooseDirectory: true
-      }
-    }),
     new MakerZIP({}, ['win32']),
   ],
   plugins: [
